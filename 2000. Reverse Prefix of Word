@@ -1,0 +1,43 @@
+/**
+ * @param {string} word
+ * @param {character} ch
+ * @return {string}
+ */
+var reversePrefix = function(word, ch) {
+    //first findout index of ch if index present l=0 r=ch index-1 else retur arr
+    // let arr = word.split('');
+    // let end=-1;
+    // for(let i=0;i<word.length;i++){
+    //     if(arr[i] === ch){
+    //         end = i;
+    //         break;
+    //     }
+    // }
+    // if(end === -1) return word;
+    // //two pointer
+    // let start=0;
+    // // console.log(end);
+    // while(start<end){
+    //     let temp = arr[start];
+    //     arr[start] = arr[end];
+    //     arr[end]= temp; 
+    //     start++;
+    //     end--;
+    // }
+    // return arr.join('');
+    // //tc- O(n+n+n/2+n)=O(n);
+    // //sc-O(n) 
+
+    let end=-1;
+    for(let i=0;i<word.length;i++){
+        if(word[i] === ch){
+            end = i;
+            break;
+        }
+    }
+    if(end === -1) return word;  
+
+    let prefix= word.slice(0,end+1).split('').reverse().join('');
+    return prefix + word.slice(end+1);
+    //  TC- o(N+k)-O(N) SC-O(k)
+};
