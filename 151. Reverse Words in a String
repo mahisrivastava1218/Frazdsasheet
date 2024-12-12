@@ -1,0 +1,42 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+    //trime method remove whitespace outside and replace mwthod replace multiple space with single space
+//     s=s.trim().replace(/\s+/g,' '); //tc- O(n) SC-O(n)(replace)
+//    let arr= s.split(' '); //tc-O(n) sc- O(K) 
+//    //two pointer - O(k/2)-O(k)
+//    let left=0;
+//    let right=arr.length-1;
+//    while(left<right){
+//       [arr[left],arr[right]] = [arr[right],arr[left]];
+//       left++;
+//       right--;
+//    }
+//    return arr.join(' '); //tc- O(n)
+   //TC- O(n+n+n+n+n)-O(n) SC-O(n+k+n)= O(n)
+   let word='';
+   let arr=[];
+   //['the','sky','is','blue]
+   for(let i=0;i<s.length;i++){
+       if(s[i] !== " "){
+        word += s[i];
+       }else if(word){
+        arr.push(word);
+        word= '';
+       }
+   }
+   console.log(arr);
+   if(word) arr.push(word);
+   console.log(arr);
+   let left=0;
+   let right=arr.length-1;
+   while(left<right){
+      [arr[left],arr[right]] = [arr[right],arr[left]];
+      left++;
+      right--;
+   }
+   return arr.join(' '); 
+   //tc and sc-O(n)
+}
