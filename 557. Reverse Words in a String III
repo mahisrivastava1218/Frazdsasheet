@@ -1,0 +1,36 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+    // let result = ""; // To store the final result
+    // let word = ""; // To build each word
+
+    // for (let i = 0; i < s.length; i++) {
+    //     if (s[i] !== " ") {
+    //         word = s[i] + word; //worst cast tc- O(n^2) sc-O(w)
+    //         console.log(word);
+    //     } else {
+    //         result += word + " ";
+    //         word = ""; 
+    //     }
+    // }
+
+    // result += word;
+
+    // return result;
+    // //tc -O(n^n) SC-O(n)
+    let result="";
+    let arr=[];
+    for(let i=0;i<s.length;i++){
+        if(s[i] !== " "){
+            arr.push(s[i]);
+        }else{
+            result += arr.reverse().join("")+" ";
+            arr=[];
+        }
+    }
+    result += arr.reverse().join("");
+    return result;
+    //tc-O(n) sc-O(n)
+ };
