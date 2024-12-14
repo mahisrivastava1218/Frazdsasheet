@@ -1,0 +1,46 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+    //  s= s.toLowerCase(); //tc-O(n) 
+    // let newstr=''
+    // for(let i=0;i<s.length;i++){  //tc- O(n) //sc-O(m)
+    //     if((s.charCodeAt(i)>=48 &&  s.charCodeAt(i)<=57) || (s.charCodeAt(i) >= 97 &&  s.charCodeAt(i)<=122)){
+    //         newstr += s[i];
+    //     }
+    // }
+    // //this newstr our working str comparing str now reverse done check palindrome
+    
+    // let comparestr = '';
+    // for(let i=newstr.length-1;i>=0;i--){  //tc-O(m) //sc-O(m)
+    //         comparestr += newstr[i];
+    // }
+    // // console.log(newstr);
+    // // console.log(comparestr);
+    // if(newstr === comparestr){ //tc-O(m)
+    //     return true;
+    // }else{
+    //     return false;
+    // }
+    //tc-O(n+n+m+m)-O(n) sc-O(1+m+m+1)=O(m)
+
+     //two pointer approach
+     s= s.toLowerCase();
+     let left=0, right=s.length-1;
+     while(left<right){ 
+        while(left<right && !((s.charCodeAt(left)>=48 && s.charCodeAt(left)<=57) || (s.charCodeAt(left)>=97 && s.charCodeAt(left)<=122))){
+            left++;
+        }
+        while(left<right && !(s.charCodeAt(right)>=48 && s.charCodeAt(right)<=57 || s.charCodeAt(right)>=97 && s.charCodeAt(right)<=122)){
+            right--;
+        }
+        if(s.charCodeAt(left) !== s.charCodeAt(right)){
+            return false;
+        }
+        left++;
+        right--;
+     }
+     return true;
+     //tc-O(n) sc-O(1)
+};
