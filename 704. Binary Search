@@ -1,0 +1,44 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function(nums, target) {
+    // let left = 0;
+    // let right =nums.length-1;
+    // while(left<=right){
+    //     ///last index cover //5/2-2.->2 3+5/2-4 5<9 7/2-3.5-3 4 9 left= 6/2-3 mid=4+5=4.5
+    //     let mid = Math.floor((left+right)/2);
+    //     console.log(nums[mid]);
+    //     if(nums[mid] === target){
+    //         return mid;
+    //     }
+    //     //mid= 2-arr[1]-0 mid=0+1=0.5=0
+    //     if(mid<nums.length && nums[mid]< target){
+    //         left++;
+
+    //     }else{
+    //         right--;
+    //     }
+    // }
+    // return -1;
+    //tc - O(logn) sc= O(1)
+ 
+    let left = 0;
+    let right =nums.length-1;
+    while(right>=left){
+        //mid-0+5/2-3 1+4/2=3 2+3/2=3 left= 3+1=4 mid=4+0=4
+        let mid =left + Math.floor((right-left)/2);
+        console.log(nums[mid]);
+        if(nums[mid] === target){
+            return mid;
+        }
+        //mid= 2-arr[1]-0 mid=0+1=0.5=0
+        if(mid<nums.length && nums[mid]< target){
+         left= mid+1;
+        }else{
+         right = mid-1;
+        }
+    }
+    return -1;
+};
