@@ -22,7 +22,7 @@ var search = function(nums, target) {
     //     }
     // }
     // return -1;
-    //tc - O(logn) sc= O(1)
+    //tc - O(n) sc= O(1)
  
     let left = 0;
     let right =nums.length-1;
@@ -41,4 +41,5 @@ var search = function(nums, target) {
         }
     }
     return -1;
+    //tc -O(logn) SC-O(1)
 };
